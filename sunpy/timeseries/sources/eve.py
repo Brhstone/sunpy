@@ -19,6 +19,8 @@ from astropy import units as u
 __all__ = ['EVESpWxTimeSeries']
 
 
+# FIXME: Do stuff here.
+
 class EVESpWxTimeSeries(GenericTimeSeries):
     """
     SDO EVE LightCurve for level 0CS data.

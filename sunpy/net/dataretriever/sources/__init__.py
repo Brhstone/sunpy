@@ -5,7 +5,7 @@ __all__ = [
     'RHESSIClient'
 ]
 
-from .eve import EVEClient
+from .eve import EVEClient, EVELeve2BClient
 from .goes import XRSClient
 from .lyra import LYRAClient
 from .noaa import NOAAIndicesClient, NOAAPredictClient
