@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Import and register LC sources
-from .sources.eve import EVEClient, EVELeve2BClient
+from .sources.eve import EVEClient, EVELevel2BClient, EVELevel2Client, EVELevel3Client, EVELevel3MergedClient
 from .sources.lyra import LYRAClient
 from .sources.goes import XRSClient
 from .sources.norh import NoRHClient

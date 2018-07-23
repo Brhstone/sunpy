@@ -533,7 +533,11 @@ class TimeSeriesFactory(BasicRegistrationFactory):
         meta = kwargs.pop('meta', None)
         units = kwargs.pop('units', None)
         if filepath:
-            data, meta, units = WidgetType._parse_file(filepath)
+            out = WidgetType._parse_file(filepath)
+            if out is NotImplemented:
+                raise NotImplementedError('{} does not implement file parsing (_parse_file).'
+                                          ' Failed to parse: {}'.format(WidgetType.__name__, filepath))
+            data, meta, units = out
 
         # Now return a TimeSeries from the given file.
         return WidgetType(data, meta, units, **kwargs)

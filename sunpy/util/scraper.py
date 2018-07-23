@@ -4,6 +4,7 @@ import os
 import datetime
 import re
 from ftplib import FTP
+from urllib.error import HTTPError
 
 from bs4 import BeautifulSoup
 from sunpy.extern import six
@@ -237,6 +238,11 @@ class Scraper(object):
                                     filesurls.append(fullpath)
                 finally:
                     opn.close()
+            except HTTPError as e:
+                # https://github.com/sunpy/sunpy/issues/2684
+                if e.code == 404:
+                    continue
+                raise
             except:
                 raise
         return filesurls
